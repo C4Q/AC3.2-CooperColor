@@ -38,12 +38,12 @@ class Object {
                     let objectId = Int(objectIdString)
                     print("@@@@@@@@@@@@@@@@@@@got Data@@@@@@@@@@@@@@@@@@@@@@@")
                 }
-            guard let imageArray = results["image"] as? [[String:AnyObject]] else {
+            guard let imageArray = results["images"] as? [[String:AnyObject]] else {
                return nil
               //  print("1111111111got image Array111111111111")
             }
             
-            guard let imageDict = imageArray[3] as? [String: AnyObject] else {
+            guard let imageDict = imageArray[0] as? [String: AnyObject] else {
                 return nil
                 //print("2222222222got image dict2222222222")
             }
@@ -51,6 +51,9 @@ class Object {
             guard let imageDictFinal = imageDict["n"] as? [String: AnyObject] else {
                 return nil
                 //print("333333333333got final dict33333333333")
+            }
+            guard let height = imageDictFinal["height"] else {
+                return nil
             }
             
 //            if let imageUrlString = imageDictFinal["url"]
