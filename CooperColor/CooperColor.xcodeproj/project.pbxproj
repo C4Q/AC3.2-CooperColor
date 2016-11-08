@@ -14,6 +14,7 @@
 		28CDD7691DD1274B00305536 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28CDD7671DD1274B00305536 /* LaunchScreen.storyboard */; };
 		28CDD7731DD12DB100305536 /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CDD7721DD12DB100305536 /* ApiManager.swift */; };
 		28CDD7761DD1360900305536 /* Object.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CDD7751DD1360900305536 /* Object.swift */; };
+		28F48C4A1DD24676007D690C /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F48C491DD24676007D690C /* Image.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		28CDD76A1DD1274B00305536 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		28CDD7721DD12DB100305536 /* ApiManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
 		28CDD7751DD1360900305536 /* Object.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Object.swift; sourceTree = "<group>"; };
+		28F48C491DD24676007D690C /* Image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,10 +60,10 @@
 		28CDD75D1DD1274B00305536 /* CooperColor */ = {
 			isa = PBXGroup;
 			children = (
+				28F48C4B1DD2467E007D690C /* Models */,
 				28CDD7741DD12DC000305536 /* Networking */,
 				28CDD7711DD12D9400305536 /* ViewControllers */,
 				28CDD7701DD12D7900305536 /* SupportingFiles */,
-				28CDD7751DD1360900305536 /* Object.swift */,
 			);
 			path = CooperColor;
 			sourceTree = "<group>";
@@ -92,6 +94,15 @@
 				28CDD7721DD12DB100305536 /* ApiManager.swift */,
 			);
 			name = Networking;
+			sourceTree = "<group>";
+		};
+		28F48C4B1DD2467E007D690C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				28CDD7751DD1360900305536 /* Object.swift */,
+				28F48C491DD24676007D690C /* Image.swift */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -170,6 +181,7 @@
 				28CDD7731DD12DB100305536 /* ApiManager.swift in Sources */,
 				28CDD7761DD1360900305536 /* Object.swift in Sources */,
 				28CDD75F1DD1274B00305536 /* AppDelegate.swift in Sources */,
+				28F48C4A1DD24676007D690C /* Image.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -331,6 +343,7 @@
 				28CDD76F1DD1274B00305536 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

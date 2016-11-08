@@ -8,9 +8,9 @@
 
 import Foundation
 
-class APIRequestManager {
+class ApiRequestManager {
     //MARK: - Properties
-    static let manager = APIRequestManager()
+    static let manager = ApiRequestManager()
     
     //MARK: - Initializers
     private init() {}

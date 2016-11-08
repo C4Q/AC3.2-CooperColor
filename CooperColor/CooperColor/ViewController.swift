@@ -9,7 +9,8 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    var object = [Object]()
+    
     @IBOutlet weak var cooperObjectImage: UIImageView!
     @IBOutlet weak var cooperTombstoneLabel: UILabel!
     
@@ -23,8 +24,15 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        ApiRequestManager.manager.getData(apiEndpoint: randomObjectEndpoint) { (data: Data?) in
+            guard let validData = data else { return }
+            if let validObject = Object.generateObject(from: validData) {
+//                self.object = validObject
+                
+                DispatchQueue.main.async {
+                }
+            }
+        }
     }
-
 }
 
