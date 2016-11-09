@@ -11,6 +11,8 @@ import UIKit
 class ViewController: UIViewController {
     var object = [Object]()
     
+    internal let randomObjectEndpoint: String = "https://api.collection.cooperhewitt.org/rest/?method=cooperhewitt.objects.getRandom&access_token=1c6fcc4a8c333c57340cc2e821101854&has_image=1"
+    
     @IBOutlet weak var cooperObjectImageView: UIImageView!
     @IBOutlet weak var cooperTombstoneLabel: UILabel!
     
@@ -25,6 +27,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        getRandomCooperObject(from: randomObjectEndpoint)
         ApiRequestManager.manager.getData(apiEndpoint: randomObjectEndpoint) { (data: Data?) in
             guard let validData = data else { return }
             if let validObject = Object.generateObject(from: validData) {
@@ -34,9 +37,6 @@ class ViewController: UIViewController {
                 }
             }
         }
-    }
-
-   
-    
+            }
 }
 
