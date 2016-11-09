@@ -11,7 +11,7 @@ import UIKit
 class ViewController: UIViewController {
     var object = [Object]()
     
-    @IBOutlet weak var cooperObjectImage: UIImageView!
+    @IBOutlet weak var cooperObjectImageView: UIImageView!
     @IBOutlet weak var cooperTombstoneLabel: UILabel!
     
     @IBOutlet weak var topBgColorLabel: UILabel!
@@ -20,7 +20,7 @@ class ViewController: UIViewController {
     
     
     @IBAction func buttonTapped(_ sender: UIButton) {
-        
+        cooperTombstoneLabel.text = "You pressed the button!"
     }
     
     override func viewDidLoad() {
@@ -35,5 +35,8 @@ class ViewController: UIViewController {
             }
         }
     }
+
+   
+    
 }
 

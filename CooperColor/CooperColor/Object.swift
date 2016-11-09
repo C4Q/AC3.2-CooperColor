@@ -24,7 +24,7 @@ class Object {
         self.image = image
         self.objectUrl = objectUrl
     }
-    static func generateObject(from data: Data) -> [Object?]? {
+    static func generateObject(from data: Data) -> Object? {
         var objectsToReturn = [Object]()
         
         do {
@@ -32,15 +32,15 @@ class Object {
             guard let response = jsonData as? [String: AnyObject],
                 let results = response["object"] as? [String: AnyObject] else {
                     throw handleParseError.results(json: jsonData)
-                }
-                
-                if let objectIdString = results["id"] as? String {
-                    let objectId = Int(objectIdString)
-                    print("@@@@@@@@@@@@@@@@@@@got Data@@@@@@@@@@@@@@@@@@@@@@@")
-                }
+            }
+            
+            if let objectIdString = results["id"] as? String {
+                let objectId = Int(objectIdString)
+                print("@@@@@@@@@@@@@@@@@@@got Data@@@@@@@@@@@@@@@@@@@@@@@")
+            }
             guard let imageArray = results["images"] as? [[String:AnyObject]] else {
-               return nil
-              //  print("1111111111got image Array111111111111")
+                return nil
+                //  print("1111111111got image Array111111111111")
             }
             
             guard let imageDict = imageArray[0] as? [String: AnyObject] else {
@@ -52,34 +52,12 @@ class Object {
                 return nil
                 //print("333333333333got final dict33333333333")
             }
-            guard let height = imageDictFinal["height"] else {
-                return nil
-            }
-            
-//            if let imageUrlString = imageDictFinal["url"]
-            
-//                if let imageDictOne = results["images"] as? [[String: AnyObject]] else {
-//                    throw handleParseError.results(json: jsonData)
-//                    print("Error encountered parsing imageDictOne")
-//                }
-//                if let imageDictTwo = imageDictOne["n"] else {
-//                    throw handleParseError.results(json: jsonData)
-//                    print("Error encountered parsing imageDictTwo")
-//                }
-//                if let imageDictThree = imageDictTwo["url"] else {
-//                    throw handleParseError.results(json: jsonData)
-//                    print("Error encountered parsing imageDictThree")
-//                }
-//                guard let getValidImageUrl = imageDictThree as? String else {return nil}
-//                let imageUrl = URL(getValidImageUrl)
-//                    
-//                }
-//                guard let height = imageDictTwo["height"]
-//                guard let width = imageDictTwo["width"]
-//                
-            } catch {
-                print ("Error encountered when parsing")
-            }
-return [Object]()
+            let myImage = Image(from: imageDictFinal)
+            return myImage
+        } catch {
+            print ("Error encountered when parsing")
+            return nil
+        }
+        
     }
 }

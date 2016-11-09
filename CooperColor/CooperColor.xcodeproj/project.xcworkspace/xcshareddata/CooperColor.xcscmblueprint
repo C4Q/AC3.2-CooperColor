@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "BC4FDA4CE67DE15DCCAEAF49CD525E7C41930BFC",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "BC4FDA4CE67DE15DCCAEAF49CD525E7C41930BFC" : 9223372036854775807,
+    "0DB9FB143201BB83C2C9AE089DCB9B1624E45E40" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "2D697253-8B83-4A3C-B14E-029D95B07410",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "BC4FDA4CE67DE15DCCAEAF49CD525E7C41930BFC" : "AC3.2-CooperColor\/",
+    "0DB9FB143201BB83C2C9AE089DCB9B1624E45E40" : ""
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "CooperColor",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "CooperColor\/CooperColor.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/C4Q\/AC3.2-Tableviews_Part_1",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "0DB9FB143201BB83C2C9AE089DCB9B1624E45E40"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/C4Q\/AC3.2-CooperColor.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "BC4FDA4CE67DE15DCCAEAF49CD525E7C41930BFC"
+    }
+  ]
+}
