@@ -8,6 +8,21 @@
 
 import Foundation
 
+struct CooperHewittConstants {
+    static let accessToken = "03429927ab1fef87a66d27dda7bfc853"
+}
+
+enum CooperHewittEndpoint: String {
+    case getObject = "https://api.collection.cooperhewitt.org/rest/?method=cooperhewitt.objects.getRandom&access_token=%@&has_image=1"
+    
+    func configuredEndpointUrl() -> URL? {
+        switch self {
+        case .getObject: return URL(string: String(format: self.rawValue, CooperHewittConstants.accessToken))
+        }
+    }
+}
+
+
 class ApiRequestManager {
     
     //MARK: - Properties
@@ -16,61 +31,38 @@ class ApiRequestManager {
     //MARK: - Initializers
     private init() {}
     
-    func getData(apiEndpoint: String, callback: @escaping (Image?) -> Void) {
-        
+    func getCooperObject(callback: @escaping (CooperHewittRandomObject?) -> Void) {
+        getData(apiEndpoint: .getObject, parser: CooperHewittRandomObjectParser(), callback: callback)
+    }
+    
+    private func getData<T: Parsing>(apiEndpoint: CooperHewittEndpoint,
+                         parser: T,
+                         callback: @escaping (T.Response?) -> Void) {
         //1. get URL from apiEndpoint
-        guard let url: URL = URL(string: apiEndpoint) else { return }
-        
+        guard let url = apiEndpoint.configuredEndpointUrl() else {
+            callback(nil)
+            return
+        }
+
         //2.create URL Session
-        let session: URLSession = URLSession.init(configuration: .default)
-        
+        let session: URLSession = URLSession.shared
+
         //3.create task and pass data into closure
         session.dataTask(with: url) { (data: Data?, response: URLResponse?, error: Error?) in
             if error != nil {
                 print("Encountered an error: \(error)")
+                callback(nil)
             }
-            
-            guard let jsonData = data else { return }
-            let validImage = ApiRequestManager.manager.getImage(jsonData)
-            callback(validImage)
-            
+
+            guard let data = data,
+                let jsonData = (try? JSONSerialization.jsonObject(with: data, options: [])) as? [String: Any]
+                else {
+                    callback(nil)
+                    return
+            }
+
+            callback(parser.parse(dictionary: jsonData))
+
             }.resume()
     }
-    static func generateObject(from data: Data) -> Object? {
-        var objectsToReturn = [Object]()
-        
-        do {
-            let jsonData: Any = try JSONSerialization.jsonObject(with: data, options: [])
-            guard let response = jsonData as? [String: AnyObject],
-                let results = response["object"] as? [String: AnyObject] else {
-                    throw handleParseError.results(json: jsonData)
-            }
-            
-            if let objectIdString = results["id"] as? String {
-                let objectId = Int(objectIdString)
-                print("@@@@@@@@@@@@@@@@@@@got Data@@@@@@@@@@@@@@@@@@@@@@@")
-            }
-            guard let imageArray = results["images"] as? [[String:AnyObject]] else {
-                return nil
-                //  print("1111111111got image Array111111111111")
-            }
-            
-            guard let imageDict = imageArray[0] as? [String: AnyObject] else {
-                return nil
-                //print("2222222222got image dict2222222222")
-            }
-            
-            guard let imageDictFinal = imageDict["n"] as? [String: AnyObject] else {
-                return nil
-                //print("333333333333got final dict33333333333")
-            }
-            let myImage = Image(from: imageDictFinal)
-            return myImage
-        } catch {
-            print ("Error encountered when parsing")
-            return nil
-        }
-        
-    }
-
 }
