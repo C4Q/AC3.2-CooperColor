@@ -17,19 +17,24 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var cooperObjectImageView: UIImageView!
     @IBOutlet weak var cooperTombstoneLabel: UILabel!
+    @IBOutlet weak var cooperObjectRefreshButton: UIButton!
     
     @IBAction func buttonTapped(_ sender: UIButton) {
-//        cooperTombstoneLabel.text = 
-//        cooperObjectImageView.image =  
+        
+        getAndSetNewObject()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        getAndSetNewObject()
+        
+    }
+    
+    func getAndSetNewObject() {
         ApiRequestManager.manager.getCooperObject { [weak self] randomObject in
             guard let randomObject = randomObject else {
                 return
             }
-            print(randomObject)
             self?.object = randomObject
         }
     }

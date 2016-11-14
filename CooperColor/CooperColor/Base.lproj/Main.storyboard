@@ -19,18 +19,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ji3-p8-4Wx">
-                                <frame key="frameInset" minX="67" minY="183" width="190" height="51"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </stackView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="a33-q5-jkw"/>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tombstone Lorem Ipsum" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WUR-LG-zSM">
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3pQ-6E-edQ">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="a33-q5-jkw">
+                                <frame key="frameInset" minX="16" minY="116" width="343" height="330"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Tombstone Lorem Ipsum" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WUR-LG-zSM">
+                                <frame key="frameInset" minX="92" minY="454" width="190" height="21"/>
+                                <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0tu-6Z-eVs">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0tu-6Z-eVs">
+                                <frame key="frameInset" minX="117" minY="509" width="140" height="70"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="Palatino-BoldItalic" family="Palatino" pointSize="17"/>
                                 <size key="titleShadowOffset" width="3" height="3"/>
                                 <state key="normal" title="New Object"/>
                                 <connections>
@@ -40,21 +44,25 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="a33-q5-jkw" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="100" id="5nA-OM-jN0"/>
                             <constraint firstAttribute="trailingMargin" secondItem="a33-q5-jkw" secondAttribute="trailing" id="7Zh-T7-Y6Y"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="0tu-6Z-eVs" secondAttribute="bottom" constant="162" id="AOa-SO-sq5"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="0tu-6Z-eVs" secondAttribute="trailing" constant="149" id="OmL-Ec-7za"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="3pQ-6E-edQ" secondAttribute="bottom" id="AV0-HM-2Qn"/>
+                            <constraint firstItem="0tu-6Z-eVs" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="24" id="HjD-H8-7b4"/>
+                            <constraint firstAttribute="trailing" secondItem="3pQ-6E-edQ" secondAttribute="trailing" id="HzB-nN-V0X"/>
+                            <constraint firstItem="0tu-6Z-eVs" firstAttribute="top" secondItem="WUR-LG-zSM" secondAttribute="bottom" constant="20" id="I5J-3L-C3i"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="0tu-6Z-eVs" secondAttribute="bottom" constant="20" id="J89-3Q-fOt"/>
+                            <constraint firstItem="3pQ-6E-edQ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="WbW-nO-UNs"/>
                             <constraint firstItem="WUR-LG-zSM" firstAttribute="top" secondItem="a33-q5-jkw" secondAttribute="bottom" constant="8" id="fJ0-eN-7N2"/>
                             <constraint firstAttribute="trailingMargin" secondItem="WUR-LG-zSM" secondAttribute="trailing" constant="77" id="gXF-GS-0aK"/>
-                            <constraint firstItem="a33-q5-jkw" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="hO8-XA-vxf"/>
-                            <constraint firstItem="0tu-6Z-eVs" firstAttribute="top" secondItem="WUR-LG-zSM" secondAttribute="bottom" id="j3M-uY-cS6"/>
-                            <constraint firstItem="0tu-6Z-eVs" firstAttribute="top" secondItem="WUR-LG-zSM" secondAttribute="bottom" id="rHH-5Y-Bnt"/>
-                            <constraint firstItem="0tu-6Z-eVs" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="148" id="soK-ig-r6P"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="0tu-6Z-eVs" secondAttribute="trailing" constant="24" id="tQW-gh-D5e"/>
                             <constraint firstItem="a33-q5-jkw" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="twb-JU-hfA"/>
+                            <constraint firstItem="3pQ-6E-edQ" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="xmb-QD-EdR"/>
                             <constraint firstItem="WUR-LG-zSM" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="76" id="yK0-cH-K32"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="cooperObjectImageView" destination="a33-q5-jkw" id="4Re-Gj-zyE"/>
+                        <outlet property="cooperObjectRefreshButton" destination="0tu-6Z-eVs" id="CwH-5Q-Juh"/>
                         <outlet property="cooperTombstoneLabel" destination="WUR-LG-zSM" id="52Q-Dk-Ty8"/>
                     </connections>
                 </viewController>
