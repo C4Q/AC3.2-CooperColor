@@ -9,11 +9,19 @@
 import Foundation
 
 struct CooperHewittConstants {
-    static let accessToken = "03429927ab1fef87a66d27dda7bfc853"
+    static let accessToken = "33963188b8c804c81e7f9c963d2fd4a7"
+    
+    //    let randomObjectId = ??
 }
 
 enum CooperHewittEndpoint: String {
     case getObject = "https://api.collection.cooperhewitt.org/rest/?method=cooperhewitt.objects.getRandom&access_token=%@&has_image=1"
+    //
+    //    case tombstone = "https://api.collection.cooperhewitt.org/rest/?method=cooperhewitt.objects.getEpitaph&access_token=%@&id=\(objectId)"
+    //
+    //    case colors = "https://api.collection.cooperhewitt.org/rest/?method=cooperhewitt.objects.getColors&access_token=%@&id=\(objectId)"
+    //
+    //    case default = return nil
     
     func configuredEndpointUrl() -> URL? {
         switch self {
@@ -21,7 +29,6 @@ enum CooperHewittEndpoint: String {
         }
     }
 }
-
 
 class ApiRequestManager {
     
@@ -43,26 +50,26 @@ class ApiRequestManager {
             callback(nil)
             return
         }
-
+        
         //2.create URL Session
         let session: URLSession = URLSession.shared
-
+        
         //3.create task and pass data into closure
         session.dataTask(with: url) { (data: Data?, response: URLResponse?, error: Error?) in
             if error != nil {
                 print("Encountered an error: \(error)")
                 callback(nil)
             }
-
+            
             guard let data = data,
                 let jsonData = (try? JSONSerialization.jsonObject(with: data, options: [])) as? [String: Any]
                 else {
                     callback(nil)
                     return
             }
-
+            
             callback(parser.parse(dictionary: jsonData))
-
+            
             }.resume()
     }
 }
