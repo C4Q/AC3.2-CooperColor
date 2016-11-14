@@ -9,7 +9,7 @@
 import Foundation
 
 struct CooperHewittConstants {
-    static let accessToken = "03429927ab1fef87a66d27dda7bfc853"
+    static let accessToken = "33963188b8c804c81e7f9c963d2fd4a7"
 }
 
 enum CooperHewittEndpoint: String {

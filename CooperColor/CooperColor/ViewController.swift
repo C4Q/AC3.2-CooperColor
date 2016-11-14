@@ -18,13 +18,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var cooperObjectImageView: UIImageView!
     @IBOutlet weak var cooperTombstoneLabel: UILabel!
     
-    @IBOutlet weak var topBgColorLabel: UILabel!
-    @IBOutlet weak var middleBgColorLabel: UILabel!
-    @IBOutlet weak var bottomBgColorLabel: UILabel!
-    
-    
     @IBAction func buttonTapped(_ sender: UIButton) {
-        cooperTombstoneLabel.text = "You pressed the button!"
+//        cooperTombstoneLabel.text = 
+//        cooperObjectImageView.image =  
     }
     
     override func viewDidLoad() {
