@@ -9,7 +9,11 @@
 import UIKit
 
 class ViewController: UIViewController {
-    var object = [Object]()
+    var object: CooperHewittRandomObject? {
+        didSet {
+            setupImageView()
+        }
+    }
     
     @IBOutlet weak var cooperObjectImageView: UIImageView!
     @IBOutlet weak var cooperTombstoneLabel: UILabel!
@@ -25,18 +29,26 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        ApiRequestManager.manager.getData(apiEndpoint: randomObjectEndpoint) { (data: Data?) in
-            guard let validData = data else { return }
-            if let validObject = Object.generateObject(from: validData) {
-//                self.object = validObject
-                
-                DispatchQueue.main.async {
-                }
+        ApiRequestManager.manager.getCooperObject { [weak self] randomObject in
+            guard let randomObject = randomObject else {
+                return
             }
+            print(randomObject)
+            self?.object = randomObject
         }
     }
-
-   
     
+    func setupImageView() {
+        object?.getImage(callback: { image in
+            let update = { self.cooperObjectImageView.image = image }
+            if Thread.isMainThread {
+                update()
+            } else {
+                DispatchQueue.main.async {
+                    update()
+                }
+            }
+        })
+    }
 }
 
